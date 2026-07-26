@@ -35,6 +35,7 @@ dependencies:
 
   # ── Navigation ───────────────────────────────────────────────────────────────
   auto_route: ^11.1.0
+  flutter_native_splash: ^2.4.7
 
   # ── UI ───────────────────────────────────────────────────────────────────────
   flutter_svg: ^2.3.0
@@ -63,9 +64,29 @@ dev_dependencies:
   auto_route_generator: ^10.6.0
   injectable_generator: ^3.1.1
   slang_build_runner: ^4.18.0
+  flutter_gen_runner: ^5.15.0
 
   # ── Testing ──────────────────────────────────────────────────────────────────
   mocktail: ^1.0.5
+
+flutter_gen:
+  output: lib/gen/
+  integrations:
+    flutter_svg: true
+  assets:
+    exclude:
+      - assets/i18n/**
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/images/app_logo.jpeg
+  color_dark: "#FFFFFF"
+  image_dark: assets/images/app_logo.jpeg
+  android_12:
+    color: "#FFFFFF"
+    image: assets/images/app_logo.jpeg
+    color_dark: "#FFFFFF"
+    image_dark: assets/images/app_logo.jpeg
 
 flutter:
   uses-material-design: true

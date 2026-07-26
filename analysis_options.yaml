@@ -11,6 +11,7 @@ analyzer:
 
   exclude:
     - "**/*.g.dart"
+    - "**/*.gen.dart"
     - "**/*.freezed.dart"
     - "**/*.gr.dart"
     - "**/generated/**"
