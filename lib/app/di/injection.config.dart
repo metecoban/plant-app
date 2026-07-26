@@ -27,6 +27,16 @@ import 'package:plant_app/features/app_flow/domain/repositories/app_flow_reposit
     as _i489;
 import 'package:plant_app/features/app_flow/presentation/cubit/app_flow_cubit.dart'
     as _i88;
+import 'package:plant_app/features/home/data/datasources/home_remote_data_source.dart'
+    as _i613;
+import 'package:plant_app/features/home/data/repositories/home_repository_impl.dart'
+    as _i625;
+import 'package:plant_app/features/home/domain/repositories/home_repository.dart'
+    as _i790;
+import 'package:plant_app/features/home/domain/usecases/get_plants.dart'
+    as _i274;
+import 'package:plant_app/features/home/domain/usecases/get_questions.dart'
+    as _i744;
 import 'package:plant_app/features/onboarding/presentation/cubit/onboarding_cubit.dart'
     as _i672;
 import 'package:plant_app/features/paywall/presentation/cubit/paywall_cubit.dart'
@@ -64,11 +74,23 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.dio(gh<_i559.DioFactory>()),
     );
     gh.lazySingleton<_i747.DioClient>(() => _i747.DioClient(gh<_i361.Dio>()));
+    gh.lazySingleton<_i613.HomeRemoteDataSource>(
+      () => _i613.HomeRemoteDataSourceImpl(gh<_i361.Dio>()),
+    );
     gh.lazySingleton<_i489.AppFlowRepository>(
       () => _i488.AppFlowRepositoryImpl(gh<_i933.LocalStorage>()),
     );
     gh.factory<_i88.AppFlowCubit>(
       () => _i88.AppFlowCubit(gh<_i489.AppFlowRepository>()),
+    );
+    gh.lazySingleton<_i790.HomeRepository>(
+      () => _i625.HomeRepositoryImpl(gh<_i613.HomeRemoteDataSource>()),
+    );
+    gh.factory<_i274.GetPlants>(
+      () => _i274.GetPlants(gh<_i790.HomeRepository>()),
+    );
+    gh.factory<_i744.GetQuestions>(
+      () => _i744.GetQuestions(gh<_i790.HomeRepository>()),
     );
     return this;
   }

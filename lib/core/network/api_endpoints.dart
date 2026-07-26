@@ -12,4 +12,7 @@ final class ApiEndpoints {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
   };
+
+  static const questions = '/getQuestions';
+  static const categories = '/getCategories';
 }
