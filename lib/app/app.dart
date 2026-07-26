@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:plant_app/app/theme/app_colors.dart';
 import 'package:plant_app/app/theme/app_theme.dart';
+import 'package:plant_app/app/theme/app_theme_extensions.dart';
 import 'package:plant_app/core/i18n/strings.g.dart';
+import 'package:plant_app/shared/widgets/common_scaffold.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -24,6 +27,11 @@ class _PlaceholderHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text(t.appTitle)));
+    return CommonScaffold(
+      backgroundType: AppBackground.home,
+      body: Center(
+        child: Text(t.appTitle, style: context.textTheme.headlineLarge),
+      ),
+    );
   }
 }

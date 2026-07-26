@@ -1,3 +1,11 @@
 {
-  "appTitle": "Bitki Uygulaması"
+  "appTitle": "Bitki Uygulaması",
+  "common": {
+    "loading": "Yükleniyor...",
+    "errorTitle": "Bir sorun oluştu",
+    "errorMessage": "Lütfen daha sonra tekrar deneyin.",
+    "retry": "Tekrar Dene",
+    "emptyTitle": "Henüz bir şey yok",
+    "emptyMessage": "Daha sonra tekrar kontrol edin."
+  }
 }

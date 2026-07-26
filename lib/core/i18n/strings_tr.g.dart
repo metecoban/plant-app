@@ -40,6 +40,22 @@ class TranslationsTr extends Translations with BaseTranslations<AppLocale, Trans
 
 	// Translations
 	@override String get appTitle => 'Bitki Uygulaması';
+	@override late final _Translations$common$tr common = _Translations$common$tr._(_root);
+}
+
+// Path: common
+class _Translations$common$tr extends Translations$common$en {
+	_Translations$common$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get loading => 'Yükleniyor...';
+	@override String get errorTitle => 'Bir sorun oluştu';
+	@override String get errorMessage => 'Lütfen daha sonra tekrar deneyin.';
+	@override String get retry => 'Tekrar Dene';
+	@override String get emptyTitle => 'Henüz bir şey yok';
+	@override String get emptyMessage => 'Daha sonra tekrar kontrol edin.';
 }
 
 /// The flat map containing all translations for locale <tr>.
@@ -51,6 +67,12 @@ extension on TranslationsTr {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
 			'appTitle' => 'Bitki Uygulaması',
+			'common.loading' => 'Yükleniyor...',
+			'common.errorTitle' => 'Bir sorun oluştu',
+			'common.errorMessage' => 'Lütfen daha sonra tekrar deneyin.',
+			'common.retry' => 'Tekrar Dene',
+			'common.emptyTitle' => 'Henüz bir şey yok',
+			'common.emptyMessage' => 'Daha sonra tekrar kontrol edin.',
 			_ => null,
 		};
 	}

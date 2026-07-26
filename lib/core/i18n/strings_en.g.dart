@@ -43,6 +43,35 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	/// en: 'Plant App'
 	String get appTitle => 'Plant App';
+
+	late final Translations$common$en common = Translations$common$en.internal(_root);
+}
+
+// Path: common
+class Translations$common$en {
+	Translations$common$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Loading...'
+	String get loading => 'Loading...';
+
+	/// en: 'Something went wrong'
+	String get errorTitle => 'Something went wrong';
+
+	/// en: 'Please try again later.'
+	String get errorMessage => 'Please try again later.';
+
+	/// en: 'Retry'
+	String get retry => 'Retry';
+
+	/// en: 'Nothing here yet'
+	String get emptyTitle => 'Nothing here yet';
+
+	/// en: 'Check back later.'
+	String get emptyMessage => 'Check back later.';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -54,6 +83,12 @@ extension on Translations {
 	dynamic _flatMapFunction(String path) {
 		return switch (path) {
 			'appTitle' => 'Plant App',
+			'common.loading' => 'Loading...',
+			'common.errorTitle' => 'Something went wrong',
+			'common.errorMessage' => 'Please try again later.',
+			'common.retry' => 'Retry',
+			'common.emptyTitle' => 'Nothing here yet',
+			'common.emptyMessage' => 'Check back later.',
 			_ => null,
 		};
 	}
