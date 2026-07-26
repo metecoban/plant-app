@@ -74,7 +74,9 @@ class _OnboardingViewState extends State<_OnboardingView> {
             canPop: false,
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: context.appColors.backgroundFor(AppBackground.onboarding),
+                color: context.appColors.backgroundFor(
+                  AppBackground.onboarding,
+                ),
                 image: DecorationImage(
                   image: Assets.images.onboarding.background.provider(),
                   fit: BoxFit.cover,

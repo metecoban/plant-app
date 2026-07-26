@@ -31,6 +31,9 @@ class $AssetsImagesGen {
   AssetGenImage get appLogo =>
       const AssetGenImage('assets/images/app_logo.jpeg');
 
+  /// Directory path: assets/images/home
+  $AssetsImagesHomeGen get home => const $AssetsImagesHomeGen();
+
   /// Directory path: assets/images/onboarding
   $AssetsImagesOnboardingGen get onboarding =>
       const $AssetsImagesOnboardingGen();
@@ -89,6 +92,20 @@ class $AssetsIconsPaywallGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [scanner, speedometer];
+}
+
+class $AssetsImagesHomeGen {
+  const $AssetsImagesHomeGen();
+
+  /// File path: assets/images/home/appbar.png
+  AssetGenImage get appbar =>
+      const AssetGenImage('assets/images/home/appbar.png');
+
+  /// File path: assets/images/home/header.svg
+  SvgGenImage get header => const SvgGenImage('assets/images/home/header.svg');
+
+  /// List of all assets
+  List<dynamic> get values => [appbar, header];
 }
 
 class $AssetsImagesOnboardingGen {

@@ -46,6 +46,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 
 	late final Translations$common$en common = Translations$common$en.internal(_root);
 	late final Translations$onboarding$en onboarding = Translations$onboarding$en.internal(_root);
+	late final Translations$paywall$en paywall = Translations$paywall$en.internal(_root);
 }
 
 // Path: common
@@ -132,6 +133,66 @@ class Translations$onboarding$en {
 	String get skip => 'Skip';
 }
 
+// Path: paywall
+class Translations$paywall$en {
+	Translations$paywall$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'PlantApp'
+	String get titleApp => 'PlantApp';
+
+	/// en: ' Premium'
+	String get titlePremium => ' Premium';
+
+	/// en: 'Access All Features'
+	String get subtitle => 'Access All Features';
+
+	/// en: 'Unlimited'
+	String get feature1Title => 'Unlimited';
+
+	/// en: 'Plant Identify'
+	String get feature1Subtitle => 'Plant Identify';
+
+	/// en: 'Faster'
+	String get feature2Title => 'Faster';
+
+	/// en: 'Process'
+	String get feature2Subtitle => 'Process';
+
+	/// en: '1 Month'
+	String get planMonthlyTitle => '1 Month';
+
+	/// en: '\$2.99/month, auto renewable'
+	String get planMonthlySubtitle => '\$2.99/month, auto renewable';
+
+	/// en: '1 Year'
+	String get planYearlyTitle => '1 Year';
+
+	/// en: 'First 3 days free, then \$529,99/year'
+	String get planYearlySubtitle => 'First 3 days free, then \$529,99/year';
+
+	/// en: 'Save 50%'
+	String get planYearlyBadge => 'Save 50%';
+
+	/// en: 'Try free for 3 days'
+	String get ctaButton => 'Try free for 3 days';
+
+	/// en: 'After a 3-day trial period you will be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable'
+	String get disclaimer => 'After a 3-day trial period you will be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable';
+
+	/// en: 'Terms'
+	String get terms => 'Terms';
+
+	/// en: 'Privacy'
+	String get privacy => 'Privacy';
+
+	/// en: 'Restore'
+	String get restore => 'Restore';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -163,6 +224,23 @@ extension on Translations {
 			'onboarding.page2TitleHighlight' => 'care guides',
 			'onboarding.continueButton' => 'Continue',
 			'onboarding.skip' => 'Skip',
+			'paywall.titleApp' => 'PlantApp',
+			'paywall.titlePremium' => ' Premium',
+			'paywall.subtitle' => 'Access All Features',
+			'paywall.feature1Title' => 'Unlimited',
+			'paywall.feature1Subtitle' => 'Plant Identify',
+			'paywall.feature2Title' => 'Faster',
+			'paywall.feature2Subtitle' => 'Process',
+			'paywall.planMonthlyTitle' => '1 Month',
+			'paywall.planMonthlySubtitle' => '\$2.99/month, auto renewable',
+			'paywall.planYearlyTitle' => '1 Year',
+			'paywall.planYearlySubtitle' => 'First 3 days free, then \$529,99/year',
+			'paywall.planYearlyBadge' => 'Save 50%',
+			'paywall.ctaButton' => 'Try free for 3 days',
+			'paywall.disclaimer' => 'After a 3-day trial period you will be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable',
+			'paywall.terms' => 'Terms',
+			'paywall.privacy' => 'Privacy',
+			'paywall.restore' => 'Restore',
 			_ => null,
 		};
 	}

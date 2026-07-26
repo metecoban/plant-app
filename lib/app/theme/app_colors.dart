@@ -25,6 +25,9 @@ final class AppPalette {
   static const darkHomeBackground = Color(0xFF151F1A);
   static const darkOnboardingBackground = Color(0xFF121F19);
   static const darkPaywallBackground = Color(0xFF0A1410);
+
+  static const paywallBorderUnselected = Color(0x33FFFFFF);
+  static const paywallCloseBackground = Color(0x66101814);
 }
 
 enum AppBackground { standard, onboarding, home, paywall }

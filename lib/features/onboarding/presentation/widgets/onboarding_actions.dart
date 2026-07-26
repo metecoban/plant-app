@@ -5,10 +5,6 @@ import 'package:plant_app/core/i18n/strings.g.dart';
 import 'package:plant_app/features/onboarding/presentation/models/onboarding_page_content.dart';
 import 'package:plant_app/shared/widgets/app_button.dart';
 
-abstract final class OnboardingFooterLayout {
-  static const secondaryRowHeight = 36.0;
-}
-
 class OnboardingActions extends StatelessWidget {
   const OnboardingActions({
     required this.pageIndex,
@@ -41,7 +37,7 @@ class OnboardingActions extends StatelessWidget {
           AppButton(label: primaryLabel, onPressed: onPrimaryPressed),
           const SizedBox(height: AppSpacing.section),
           SizedBox(
-            height: OnboardingFooterLayout.secondaryRowHeight,
+            height: AppSpacing.secondaryRowHeight,
             width: double.infinity,
             child: Align(
               alignment: Alignment.topCenter,

@@ -42,6 +42,7 @@ class TranslationsTr extends Translations with BaseTranslations<AppLocale, Trans
 	@override String get appTitle => 'Bitki Uygulaması';
 	@override late final _Translations$common$tr common = _Translations$common$tr._(_root);
 	@override late final _Translations$onboarding$tr onboarding = _Translations$onboarding$tr._(_root);
+	@override late final _Translations$paywall$tr paywall = _Translations$paywall$tr._(_root);
 }
 
 // Path: common
@@ -84,6 +85,32 @@ class _Translations$onboarding$tr extends Translations$onboarding$en {
 	@override String get skip => 'Atla';
 }
 
+// Path: paywall
+class _Translations$paywall$tr extends Translations$paywall$en {
+	_Translations$paywall$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get titleApp => 'PlantApp';
+	@override String get titlePremium => ' Premium';
+	@override String get subtitle => 'Tüm Özelliklere Erişin';
+	@override String get feature1Title => 'Sınırsız';
+	@override String get feature1Subtitle => 'Bitki Tanıma';
+	@override String get feature2Title => 'Daha Hızlı';
+	@override String get feature2Subtitle => 'İşlem';
+	@override String get planMonthlyTitle => '1 Ay';
+	@override String get planMonthlySubtitle => '₺99,99/ay, otomatik yenilenir';
+	@override String get planYearlyTitle => '1 Yıl';
+	@override String get planYearlySubtitle => 'İlk 3 gün ücretsiz, sonra ₺274,99/yıl';
+	@override String get planYearlyBadge => '%50 Tasarruf';
+	@override String get ctaButton => '3 gün ücretsiz dene';
+	@override String get disclaimer => '3 günlük deneme süresinin ardından, deneme süresi dolmadan iptal etmediğiniz sürece yıllık ₺274,99 ücretlendirilirsiniz. Yıllık Abonelik Otomatik Yenilenir';
+	@override String get terms => 'Koşullar';
+	@override String get privacy => 'Gizlilik';
+	@override String get restore => 'Geri Yükle';
+}
+
 /// The flat map containing all translations for locale <tr>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -115,6 +142,23 @@ extension on TranslationsTr {
 			'onboarding.page2TitleHighlight' => 'bakım rehberlerine',
 			'onboarding.continueButton' => 'Devam Et',
 			'onboarding.skip' => 'Atla',
+			'paywall.titleApp' => 'PlantApp',
+			'paywall.titlePremium' => ' Premium',
+			'paywall.subtitle' => 'Tüm Özelliklere Erişin',
+			'paywall.feature1Title' => 'Sınırsız',
+			'paywall.feature1Subtitle' => 'Bitki Tanıma',
+			'paywall.feature2Title' => 'Daha Hızlı',
+			'paywall.feature2Subtitle' => 'İşlem',
+			'paywall.planMonthlyTitle' => '1 Ay',
+			'paywall.planMonthlySubtitle' => '₺99,99/ay, otomatik yenilenir',
+			'paywall.planYearlyTitle' => '1 Yıl',
+			'paywall.planYearlySubtitle' => 'İlk 3 gün ücretsiz, sonra ₺274,99/yıl',
+			'paywall.planYearlyBadge' => '%50 Tasarruf',
+			'paywall.ctaButton' => '3 gün ücretsiz dene',
+			'paywall.disclaimer' => '3 günlük deneme süresinin ardından, deneme süresi dolmadan iptal etmediğiniz sürece yıllık ₺274,99 ücretlendirilirsiniz. Yıllık Abonelik Otomatik Yenilenir',
+			'paywall.terms' => 'Koşullar',
+			'paywall.privacy' => 'Gizlilik',
+			'paywall.restore' => 'Geri Yükle',
 			_ => null,
 		};
 	}

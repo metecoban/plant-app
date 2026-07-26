@@ -43,7 +43,7 @@ class AppFlowRepositoryImpl implements AppFlowRepository {
 
   Future<AppFlowDestination> _resolveDestination() async {
     final onboardingCompleted =
-        /* await _localStorage.getBool(StorageKeys.onboardingCompleted) ?? */ false;
+        await _localStorage.getBool(StorageKeys.onboardingCompleted) ?? false;
 
     if (!onboardingCompleted) {
       return AppFlowDestination.onboarding;

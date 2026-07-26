@@ -41,9 +41,14 @@ class _GetStartedHeader extends StatelessWidget {
           ),
         ),
         const SizedBox(height: AppSpacing.compact),
-        Text(
-          t.onboarding.getStartedSubtitle,
-          style: context.textTheme.bodyMedium?.copyWith(color: colors.subText),
+        Padding(
+          padding: const EdgeInsets.only(right: AppSpacing.horizontal),
+          child: Text(
+            t.onboarding.getStartedSubtitle,
+            style: context.textTheme.bodyMedium?.copyWith(
+              color: colors.subText,
+            ),
+          ),
         ),
       ],
     );
