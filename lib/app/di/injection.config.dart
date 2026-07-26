@@ -27,6 +27,8 @@ import 'package:plant_app/features/app_flow/domain/repositories/app_flow_reposit
     as _i489;
 import 'package:plant_app/features/app_flow/presentation/cubit/app_flow_cubit.dart'
     as _i88;
+import 'package:plant_app/features/onboarding/presentation/cubit/onboarding_cubit.dart'
+    as _i672;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 import 'package:talker_flutter/talker_flutter.dart' as _i207;
 
@@ -42,6 +44,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.sharedPreferences,
       preResolve: true,
     );
+    gh.factory<_i672.OnboardingCubit>(() => _i672.OnboardingCubit());
     gh.singleton<_i631.AppRouter>(() => _i631.AppRouter());
     gh.lazySingleton<_i207.Talker>(() => registerModule.talker);
     gh.lazySingleton<_i933.LocalStorage>(

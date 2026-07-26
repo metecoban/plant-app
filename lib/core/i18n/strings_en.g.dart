@@ -45,6 +45,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	String get appTitle => 'Plant App';
 
 	late final Translations$common$en common = Translations$common$en.internal(_root);
+	late final Translations$onboarding$en onboarding = Translations$onboarding$en.internal(_root);
 }
 
 // Path: common
@@ -74,6 +75,63 @@ class Translations$common$en {
 	String get emptyMessage => 'Check back later.';
 }
 
+// Path: onboarding
+class Translations$onboarding$en {
+	Translations$onboarding$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Welcome to '
+	String get getStartedTitlePrefix => 'Welcome to ';
+
+	/// en: 'PlantApp'
+	String get getStartedTitleHighlight => 'PlantApp';
+
+	/// en: 'Identify more than 3000+ plants and 88% accuracy.'
+	String get getStartedSubtitle => 'Identify more than 3000+ plants and 88% accuracy.';
+
+	/// en: 'Get Started'
+	String get getStartedButton => 'Get Started';
+
+	/// en: 'By tapping next, you are agreeing to PlantID '
+	String get getStartedTermsPrefix => 'By tapping next, you are agreeing to PlantID ';
+
+	/// en: 'Terms of Use'
+	String get termsOfUse => 'Terms of Use';
+
+	/// en: ' & '
+	String get getStartedTermsConnector => ' & ';
+
+	/// en: 'Privacy Policy'
+	String get privacyPolicy => 'Privacy Policy';
+
+	/// en: '.'
+	String get getStartedTermsSuffix => '.';
+
+	/// en: 'Take a photo to '
+	String get page1TitlePrefix => 'Take a photo to ';
+
+	/// en: 'identify'
+	String get page1TitleHighlight => 'identify';
+
+	/// en: ' the plant!'
+	String get page1TitleSuffix => '\nthe plant!';
+
+	/// en: 'Get plant '
+	String get page2TitlePrefix => 'Get plant ';
+
+	/// en: 'care guides'
+	String get page2TitleHighlight => 'care guides';
+
+	/// en: 'Continue'
+	String get continueButton => 'Continue';
+
+	/// en: 'Skip'
+	String get skip => 'Skip';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -89,6 +147,22 @@ extension on Translations {
 			'common.retry' => 'Retry',
 			'common.emptyTitle' => 'Nothing here yet',
 			'common.emptyMessage' => 'Check back later.',
+			'onboarding.getStartedTitlePrefix' => 'Welcome to ',
+			'onboarding.getStartedTitleHighlight' => 'PlantApp',
+			'onboarding.getStartedSubtitle' => 'Identify more than 3000+ plants and 88% accuracy.',
+			'onboarding.getStartedButton' => 'Get Started',
+			'onboarding.getStartedTermsPrefix' => 'By tapping next, you are agreeing to PlantID ',
+			'onboarding.termsOfUse' => 'Terms of Use',
+			'onboarding.getStartedTermsConnector' => ' & ',
+			'onboarding.privacyPolicy' => 'Privacy Policy',
+			'onboarding.getStartedTermsSuffix' => '.',
+			'onboarding.page1TitlePrefix' => 'Take a photo to ',
+			'onboarding.page1TitleHighlight' => 'identify',
+			'onboarding.page1TitleSuffix' => '\nthe plant!',
+			'onboarding.page2TitlePrefix' => 'Get plant ',
+			'onboarding.page2TitleHighlight' => 'care guides',
+			'onboarding.continueButton' => 'Continue',
+			'onboarding.skip' => 'Skip',
 			_ => null,
 		};
 	}

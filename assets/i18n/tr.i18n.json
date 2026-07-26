@@ -7,5 +7,23 @@
     "retry": "Tekrar Dene",
     "emptyTitle": "Henüz bir şey yok",
     "emptyMessage": "Daha sonra tekrar kontrol edin."
+  },
+  "onboarding": {
+    "getStartedTitlePrefix": "Hoş geldiniz ",
+    "getStartedTitleHighlight": "PlantApp",
+    "getStartedSubtitle": "3000+ bitkiyi %88 doğrulukla tanıyın.",
+    "getStartedButton": "Başlayın",
+    "getStartedTermsPrefix": "Devam ederek PlantID ",
+    "termsOfUse": "Kullanım Koşulları",
+    "getStartedTermsConnector": " ve ",
+    "privacyPolicy": "Gizlilik Politikası",
+    "getStartedTermsSuffix": "'nı kabul etmiş olursunuz.",
+    "page1TitlePrefix": "Bitkiyi ",
+    "page1TitleHighlight": "tanımak",
+    "page1TitleSuffix": " için\nfotoğraf çekin!",
+    "page2TitlePrefix": "Bitki ",
+    "page2TitleHighlight": "bakım rehberlerine",
+    "continueButton": "Devam Et",
+    "skip": "Atla"
   }
 }

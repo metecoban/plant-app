@@ -7,5 +7,23 @@
     "retry": "Retry",
     "emptyTitle": "Nothing here yet",
     "emptyMessage": "Check back later."
+  },
+  "onboarding": {
+    "getStartedTitlePrefix": "Welcome to ",
+    "getStartedTitleHighlight": "PlantApp",
+    "getStartedSubtitle": "Identify more than 3000+ plants and 88% accuracy.",
+    "getStartedButton": "Get Started",
+    "getStartedTermsPrefix": "By tapping next, you are agreeing to PlantID ",
+    "termsOfUse": "Terms of Use",
+    "getStartedTermsConnector": " & ",
+    "privacyPolicy": "Privacy Policy",
+    "getStartedTermsSuffix": ".",
+    "page1TitlePrefix": "Take a photo to ",
+    "page1TitleHighlight": "identify",
+    "page1TitleSuffix": "\nthe plant!",
+    "page2TitlePrefix": "Get plant ",
+    "page2TitleHighlight": "care guides",
+    "continueButton": "Continue",
+    "skip": "Skip"
   }
 }

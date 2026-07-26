@@ -12,12 +12,18 @@ void main() {
     await configureDependencies();
   });
 
-  testWidgets('App opens onboarding when flow is incomplete', (
+  testWidgets('App opens onboarding get started screen', (
     WidgetTester tester,
   ) async {
     await tester.pumpWidget(TranslationProvider(child: const App()));
     await tester.pumpAndSettle();
 
-    expect(find.text('Onboarding'), findsOneWidget);
+    expect(find.text('Get Started'), findsOneWidget);
+    expect(
+      find.text(
+        'Identify more than 3000+ plants and 88% accuracy.',
+      ),
+      findsOneWidget,
+    );
   });
 }
