@@ -7,5 +7,42 @@
     "retry": "Tekrar Dene",
     "emptyTitle": "Henüz bir şey yok",
     "emptyMessage": "Daha sonra tekrar kontrol edin."
+  },
+  "onboarding": {
+    "getStartedTitlePrefix": "Hoş geldiniz ",
+    "getStartedTitleHighlight": "PlantApp",
+    "getStartedSubtitle": "3000+ bitkiyi %88 doğrulukla tanıyın.",
+    "getStartedButton": "Başlayın",
+    "getStartedTermsPrefix": "Devam ederek PlantID ",
+    "termsOfUse": "Kullanım Koşulları",
+    "getStartedTermsConnector": " ve ",
+    "privacyPolicy": "Gizlilik Politikası",
+    "getStartedTermsSuffix": "'nı kabul etmiş olursunuz.",
+    "page1TitlePrefix": "Bitkiyi ",
+    "page1TitleHighlight": "tanımak",
+    "page1TitleSuffix": " için\nfotoğraf çekin!",
+    "page2TitlePrefix": "Bitki ",
+    "page2TitleHighlight": "bakım rehberlerine",
+    "continueButton": "Devam Et",
+    "skip": "Atla"
+  },
+  "paywall": {
+    "titleApp": "PlantApp",
+    "titlePremium": " Premium",
+    "subtitle": "Tüm Özelliklere Erişin",
+    "feature1Title": "Sınırsız",
+    "feature1Subtitle": "Bitki Tanıma",
+    "feature2Title": "Daha Hızlı",
+    "feature2Subtitle": "İşlem",
+    "planMonthlyTitle": "1 Ay",
+    "planMonthlySubtitle": "₺99,99/ay, otomatik yenilenir",
+    "planYearlyTitle": "1 Yıl",
+    "planYearlySubtitle": "İlk 3 gün ücretsiz, sonra ₺274,99/yıl",
+    "planYearlyBadge": "%50 Tasarruf",
+    "ctaButton": "3 gün ücretsiz dene",
+    "disclaimer": "3 günlük deneme süresinin ardından, deneme süresi dolmadan iptal etmediğiniz sürece yıllık ₺274,99 ücretlendirilirsiniz. Yıllık Abonelik Otomatik Yenilenir",
+    "terms": "Koşullar",
+    "privacy": "Gizlilik",
+    "restore": "Geri Yükle"
   }
 }

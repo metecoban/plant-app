@@ -12,7 +12,7 @@
 import 'package:dio/dio.dart' as _i361;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
-import 'package:plant_app/app/di/register_module.dart' as _i725;
+import 'package:plant_app/app/di/register_module.dart' as _i726;
 import 'package:plant_app/app/router/app_router.dart' as _i631;
 import 'package:plant_app/core/logger/app_bloc_observer.dart' as _i455;
 import 'package:plant_app/core/logger/app_logger.dart' as _i477;
@@ -27,6 +27,10 @@ import 'package:plant_app/features/app_flow/domain/repositories/app_flow_reposit
     as _i489;
 import 'package:plant_app/features/app_flow/presentation/cubit/app_flow_cubit.dart'
     as _i88;
+import 'package:plant_app/features/onboarding/presentation/cubit/onboarding_cubit.dart'
+    as _i672;
+import 'package:plant_app/features/paywall/presentation/cubit/paywall_cubit.dart'
+    as _i725;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 import 'package:talker_flutter/talker_flutter.dart' as _i207;
 
@@ -42,6 +46,8 @@ extension GetItInjectableX on _i174.GetIt {
       () => registerModule.sharedPreferences,
       preResolve: true,
     );
+    gh.factory<_i672.OnboardingCubit>(() => _i672.OnboardingCubit());
+    gh.factory<_i725.PaywallCubit>(() => _i725.PaywallCubit());
     gh.singleton<_i631.AppRouter>(() => _i631.AppRouter());
     gh.lazySingleton<_i207.Talker>(() => registerModule.talker);
     gh.lazySingleton<_i933.LocalStorage>(
@@ -68,4 +74,4 @@ extension GetItInjectableX on _i174.GetIt {
   }
 }
 
-class _$RegisterModule extends _i725.RegisterModule {}
+class _$RegisterModule extends _i726.RegisterModule {}

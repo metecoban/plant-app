@@ -1,0 +1,1 @@
+enum PaywallStatus { initial, completed }

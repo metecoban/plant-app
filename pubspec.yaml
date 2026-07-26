@@ -95,6 +95,7 @@ flutter:
     - assets/i18n/
     - assets/images/
     - assets/images/onboarding/
+    - assets/images/home/
     - assets/icons/
     - assets/icons/home/
     - assets/icons/paywall/

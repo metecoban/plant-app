@@ -7,5 +7,42 @@
     "retry": "Retry",
     "emptyTitle": "Nothing here yet",
     "emptyMessage": "Check back later."
+  },
+  "onboarding": {
+    "getStartedTitlePrefix": "Welcome to ",
+    "getStartedTitleHighlight": "PlantApp",
+    "getStartedSubtitle": "Identify more than 3000+ plants and 88% accuracy.",
+    "getStartedButton": "Get Started",
+    "getStartedTermsPrefix": "By tapping next, you are agreeing to PlantID ",
+    "termsOfUse": "Terms of Use",
+    "getStartedTermsConnector": " & ",
+    "privacyPolicy": "Privacy Policy",
+    "getStartedTermsSuffix": ".",
+    "page1TitlePrefix": "Take a photo to ",
+    "page1TitleHighlight": "identify",
+    "page1TitleSuffix": "\nthe plant!",
+    "page2TitlePrefix": "Get plant ",
+    "page2TitleHighlight": "care guides",
+    "continueButton": "Continue",
+    "skip": "Skip"
+  },
+  "paywall": {
+    "titleApp": "PlantApp",
+    "titlePremium": " Premium",
+    "subtitle": "Access All Features",
+    "feature1Title": "Unlimited",
+    "feature1Subtitle": "Plant Identify",
+    "feature2Title": "Faster",
+    "feature2Subtitle": "Process",
+    "planMonthlyTitle": "1 Month",
+    "planMonthlySubtitle": "\\$2.99/month, auto renewable",
+    "planYearlyTitle": "1 Year",
+    "planYearlySubtitle": "First 3 days free, then \\$529,99/year",
+    "planYearlyBadge": "Save 50%",
+    "ctaButton": "Try free for 3 days",
+    "disclaimer": "After a 3-day trial period you will be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "restore": "Restore"
   }
 }

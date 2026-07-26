@@ -24,10 +24,7 @@ class AppFlowRepositoryImpl implements AppFlowRepository {
   @override
   Future<Result<AppFlowDestination>> completeOnboarding() async {
     try {
-      await _localStorage.setBool(
-        StorageKeys.onboardingCompleted,
-        value: true,
-      );
+      await _localStorage.setBool(StorageKeys.onboardingCompleted, value: true);
       return const Success(AppFlowDestination.paywall);
     } on Exception catch (exception) {
       return FailureResult(ErrorMapper.mapException(exception));
@@ -37,10 +34,7 @@ class AppFlowRepositoryImpl implements AppFlowRepository {
   @override
   Future<Result<AppFlowDestination>> completePaywall() async {
     try {
-      await _localStorage.setBool(
-        StorageKeys.paywallCompleted,
-        value: true,
-      );
+      await _localStorage.setBool(StorageKeys.paywallCompleted, value: true);
       return const Success(AppFlowDestination.home);
     } on Exception catch (exception) {
       return FailureResult(ErrorMapper.mapException(exception));
