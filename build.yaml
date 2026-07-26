@@ -1,0 +1,23 @@
+targets:
+  $default:
+    sources:
+      include:
+        - $package$
+        - lib/**
+        - pubspec.yaml
+        - assets/**
+    builders:
+      slang_build_runner:
+        options:
+          base_locale: en
+          fallback_strategy: base_locale
+          input_directory: assets/i18n
+          output_directory: lib/core/i18n
+      flutter_gen_runner:
+        options:
+          output: lib/gen/
+          integrations:
+            flutter_svg: true
+          assets:
+            exclude:
+              - assets/i18n/**

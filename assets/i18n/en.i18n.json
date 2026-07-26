@@ -1,0 +1,11 @@
+{
+  "appTitle": "Plant App",
+  "common": {
+    "loading": "Loading...",
+    "errorTitle": "Something went wrong",
+    "errorMessage": "Please try again later.",
+    "retry": "Retry",
+    "emptyTitle": "Nothing here yet",
+    "emptyMessage": "Check back later."
+  }
+}
