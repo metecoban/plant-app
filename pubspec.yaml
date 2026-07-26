@@ -12,6 +12,8 @@ dependencies:
   # ── Flutter SDK ──────────────────────────────────────────────────────────────
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   cupertino_icons: ^1.0.8
 
   # ── State Management ───────────────────────────────────────────────────────
@@ -22,6 +24,7 @@ dependencies:
 
   # ── Dependency Injection ─────────────────────────────────────────────────────
   get_it: ^9.2.1
+  injectable: ^3.0.0
 
   # ── Serialization & Immutability ─────────────────────────────────────────────
   freezed_annotation: ^3.1.0
@@ -35,6 +38,10 @@ dependencies:
 
   # ── UI ───────────────────────────────────────────────────────────────────────
   flutter_svg: ^2.3.0
+
+  # ── Localization ─────────────────────────────────────────────────────────────
+  slang: ^4.18.0
+  slang_flutter: ^4.18.0
 
   # ── Logging & Debugging ──────────────────────────────────────────────────────
   talker_flutter: ^5.1.19
@@ -54,9 +61,35 @@ dev_dependencies:
   freezed: ^4.0.0-dev.3
   json_serializable: ^6.14.0
   auto_route_generator: ^10.6.0
+  injectable_generator: ^3.1.1
+  slang_build_runner: ^4.18.0
 
   # ── Testing ──────────────────────────────────────────────────────────────────
   mocktail: ^1.0.5
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/i18n/
+    - assets/images/
+    - assets/images/onboarding/
+    - assets/icons/
+    - assets/icons/home/
+    - assets/icons/paywall/
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto/roboto_light.ttf
+          weight: 300
+        - asset: assets/fonts/roboto/roboto_regular.ttf
+          weight: 400
+        - asset: assets/fonts/roboto/roboto_medium.ttf
+          weight: 500
+        - asset: assets/fonts/roboto/roboto_bold.ttf
+          weight: 700
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/rubik/rubik_regular.ttf
+          weight: 400
