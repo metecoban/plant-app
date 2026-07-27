@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:plant_app/app/theme/app_colors.dart';
 
 class PaywallCloseButton extends StatelessWidget {
-  const PaywallCloseButton({
-    required this.onPressed,
-    super.key,
-  });
+  const PaywallCloseButton({required this.onPressed, super.key});
 
   final VoidCallback onPressed;
 
@@ -23,11 +20,7 @@ class PaywallCloseButton extends StatelessWidget {
           child: const SizedBox(
             width: 36,
             height: 36,
-            child: Icon(
-              Icons.close,
-              size: 20,
-              color: AppPalette.darkMainText,
-            ),
+            child: Icon(Icons.close, size: 20, color: AppPalette.darkMainText),
           ),
         ),
       ),

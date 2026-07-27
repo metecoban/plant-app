@@ -25,9 +25,7 @@ final class DioFactory {
       NetworkLoggerInterceptor(
         TalkerDioLogger(
           talker: _talker,
-          settings: const TalkerDioLoggerSettings(
-            printRequestHeaders: true,
-          ),
+          settings: const TalkerDioLoggerSettings(printRequestHeaders: true),
         ),
       ),
     ]);

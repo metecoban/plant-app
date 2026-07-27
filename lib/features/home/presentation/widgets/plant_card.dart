@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/app/theme/app_colors.dart';
 import 'package:plant_app/app/theme/app_radius.dart';
 import 'package:plant_app/app/theme/app_spacing.dart';
 import 'package:plant_app/app/theme/app_theme_extensions.dart';
@@ -15,17 +14,17 @@ class PlantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors;
+
     return LayoutBuilder(
       builder: (context, constraints) {
         final imageSize = constraints.maxWidth * _imageSizeFactor;
 
         return Container(
           decoration: BoxDecoration(
-            color: AppPalette.surface,
+            color: colors.surface,
             borderRadius: BorderRadius.circular(AppRadius.r12),
-            border: Border.all(
-              color: AppPalette.subText.withValues(alpha: 0.08),
-            ),
+            border: Border.all(color: colors.subText.withValues(alpha: 0.08)),
           ),
           clipBehavior: Clip.antiAlias,
           child: Stack(
@@ -51,7 +50,7 @@ class PlantCard extends StatelessWidget {
                     style: context.textTheme.labelMedium?.copyWith(
                       fontSize: 15,
                       height: 1.3,
-                      color: AppPalette.mainText,
+                      color: colors.mainText,
                     ),
                   ),
                 ),

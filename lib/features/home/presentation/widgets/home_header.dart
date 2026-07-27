@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/app/theme/app_colors.dart';
 import 'package:plant_app/app/theme/app_radius.dart';
 import 'package:plant_app/app/theme/app_spacing.dart';
 import 'package:plant_app/app/theme/app_theme_extensions.dart';
@@ -62,6 +61,8 @@ class _TopSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors;
+
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -88,7 +89,7 @@ class _TopSection extends StatelessWidget {
               Text(
                 t.home.greeting,
                 style: context.textTheme.bodyMedium?.copyWith(
-                  color: AppPalette.subText,
+                  color: colors.subText,
                 ),
               ),
               const SizedBox(height: 4),
@@ -97,7 +98,7 @@ class _TopSection extends StatelessWidget {
                 style: context.textTheme.headlineMedium?.copyWith(
                   fontWeight: FontWeight.w700,
                   height: 1.1,
-                  color: AppPalette.mainText,
+                  color: colors.mainText,
                 ),
               ),
             ],
@@ -113,6 +114,8 @@ class _SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors;
+
     return Padding(
       padding: AppSpacing.horizontalPadding,
       child: TextField(
@@ -120,14 +123,14 @@ class _SearchBar extends StatelessWidget {
         decoration: InputDecoration(
           hintText: t.home.searchHint,
           hintStyle: context.textTheme.bodyMedium?.copyWith(
-            color: AppPalette.subText.withValues(alpha: 0.7),
+            color: colors.subText.withValues(alpha: 0.7),
           ),
           prefixIcon: Icon(
             Icons.search,
-            color: AppPalette.subText.withValues(alpha: 0.6),
+            color: colors.subText.withValues(alpha: 0.6),
           ),
           filled: true,
-          fillColor: AppPalette.surface,
+          fillColor: colors.surface,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: AppSpacing.item,
             vertical: 14,
@@ -135,19 +138,19 @@ class _SearchBar extends StatelessWidget {
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppRadius.full),
             borderSide: BorderSide(
-              color: AppPalette.subText.withValues(alpha: 0.12),
+              color: colors.subText.withValues(alpha: 0.12),
             ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppRadius.full),
             borderSide: BorderSide(
-              color: AppPalette.subText.withValues(alpha: 0.12),
+              color: colors.subText.withValues(alpha: 0.12),
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(AppRadius.full),
             borderSide: BorderSide(
-              color: AppPalette.primary.withValues(alpha: 0.4),
+              color: colors.primary.withValues(alpha: 0.4),
             ),
           ),
         ),

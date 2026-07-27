@@ -20,10 +20,7 @@ class OnboardingState {
 
   bool get showSkip => pageIndex > 0;
 
-  OnboardingState copyWith({
-    int? pageIndex,
-    OnboardingStatus? status,
-  }) {
+  OnboardingState copyWith({int? pageIndex, OnboardingStatus? status}) {
     return OnboardingState(
       pageIndex: pageIndex ?? this.pageIndex,
       status: status ?? this.status,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plant_app/app/theme/app_colors.dart';
+import 'package:plant_app/app/theme/app_theme_extensions.dart';
 import 'package:plant_app/core/i18n/strings.g.dart';
 import 'package:plant_app/gen/assets.gen.dart';
 
@@ -32,23 +33,24 @@ class HomeBottomNavBar extends StatelessWidget {
   final HomeNavItem currentItem;
   final ValueChanged<HomeNavItem> onItemSelected;
 
-  static const _inactiveColor = Color(0xFF979798);
-  static const _topBorderColor = Color(0xFFE5E5E5);
+  static const _inactiveAlpha = 0.55;
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Container(height: 1, color: _topBorderColor),
+        Container(height: 1, color: colors.subText.withValues(alpha: 0.12)),
         BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: currentItem.index,
           onTap: (index) => onItemSelected(HomeNavItemX.fromIndex(index)),
-          backgroundColor: AppPalette.surface,
+          backgroundColor: colors.surface,
           elevation: 0,
-          selectedItemColor: AppPalette.primary,
-          unselectedItemColor: _inactiveColor,
+          selectedItemColor: colors.primary,
+          unselectedItemColor: colors.subText.withValues(alpha: _inactiveAlpha),
           selectedFontSize: 11,
           unselectedFontSize: 11,
           selectedLabelStyle: const TextStyle(
@@ -62,10 +64,26 @@ class HomeBottomNavBar extends StatelessWidget {
             height: 2,
           ),
           items: [
-            _item(icon: Assets.icons.home.home, label: t.home.navHome),
-            _item(icon: Assets.icons.home.diagnose, label: t.home.navDiagnose),
-            _item(icon: Assets.icons.home.myGarden, label: t.home.navMyGarden),
-            _item(icon: Assets.icons.home.profile, label: t.home.navProfile),
+            _item(
+              icon: Assets.icons.home.home,
+              label: t.home.navHome,
+              colors: colors,
+            ),
+            _item(
+              icon: Assets.icons.home.diagnose,
+              label: t.home.navDiagnose,
+              colors: colors,
+            ),
+            _item(
+              icon: Assets.icons.home.myGarden,
+              label: t.home.navMyGarden,
+              colors: colors,
+            ),
+            _item(
+              icon: Assets.icons.home.profile,
+              label: t.home.navProfile,
+              colors: colors,
+            ),
           ],
         ),
       ],
@@ -75,10 +93,14 @@ class HomeBottomNavBar extends StatelessWidget {
   BottomNavigationBarItem _item({
     required SvgGenImage icon,
     required String label,
+    required AppColors colors,
   }) {
     return BottomNavigationBarItem(
-      icon: _NavIcon(icon: icon, color: _inactiveColor),
-      activeIcon: _NavIcon(icon: icon, color: AppPalette.primary),
+      icon: _NavIcon(
+        icon: icon,
+        color: colors.subText.withValues(alpha: _inactiveAlpha),
+      ),
+      activeIcon: _NavIcon(icon: icon, color: colors.primary),
       label: label,
     );
   }

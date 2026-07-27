@@ -15,7 +15,8 @@ class PaywallFeatureCarousel extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final cardWidth =
-            (AppSpacing.contentWidth(constraints.maxWidth) - AppSpacing.compact) /
+            (AppSpacing.contentWidth(constraints.maxWidth) -
+                AppSpacing.compact) /
             2;
 
         return SizedBox(
@@ -40,10 +41,7 @@ class PaywallFeatureCarousel extends StatelessWidget {
 }
 
 class _PaywallFeatureCard extends StatelessWidget {
-  const _PaywallFeatureCard({
-    required this.feature,
-    required this.width,
-  });
+  const _PaywallFeatureCard({required this.feature, required this.width});
 
   final PaywallFeatureContent feature;
   final double width;

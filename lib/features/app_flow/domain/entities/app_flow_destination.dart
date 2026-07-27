@@ -1,5 +1,1 @@
-enum AppFlowDestination {
-  onboarding,
-  paywall,
-  home,
-}
+enum AppFlowDestination { onboarding, paywall, home }

@@ -8,8 +8,6 @@ class SplashPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: CommonLoadingView(),
-    );
+    return const Scaffold(body: CommonLoadingView());
   }
 }
