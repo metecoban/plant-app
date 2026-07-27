@@ -262,9 +262,6 @@ class Translations$profile$en {
 
 	/// en: 'Turkish'
 	String get languageTr => 'Turkish';
-
-	/// en: 'Select language'
-	String get selectLanguage => 'Select language';
 }
 
 /// The flat map containing all translations for locale <en>.
@@ -332,7 +329,6 @@ extension on Translations {
 			'profile.language' => 'Language',
 			'profile.languageEn' => 'English',
 			'profile.languageTr' => 'Turkish',
-			'profile.selectLanguage' => 'Select language',
 			_ => null,
 		};
 	}

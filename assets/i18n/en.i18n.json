@@ -44,5 +44,27 @@
     "terms": "Terms",
     "privacy": "Privacy",
     "restore": "Restore"
+  },
+  "home": {
+    "greeting": "Hi, plant lover!",
+    "goodMorning": "Good Morning!",
+    "goodAfternoon": "Good Afternoon!",
+    "goodEvening": "Good Evening!",
+    "searchHint": "Search for plants",
+    "premiumTitle": "FREE Premium Available",
+    "premiumSubtitle": "Tap to upgrade your account!",
+    "navHome": "Home",
+    "navDiagnose": "Diagnose",
+    "navMyGarden": "My Garden",
+    "navProfile": "Profile",
+    "navScan": "Scan",
+    "emptyMessage": "No content available yet."
+  },
+  "profile": {
+    "darkTheme": "Dark theme",
+    "language": "Language",
+    "languageEn": "English",
+    "languageTr": "Turkish",
+    "selectLanguage": "Select language"
   }
 }

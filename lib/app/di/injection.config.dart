@@ -14,6 +14,8 @@ import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:plant_app/app/di/register_module.dart' as _i726;
 import 'package:plant_app/app/router/app_router.dart' as _i631;
+import 'package:plant_app/app/settings/app_settings_repository.dart' as _i527;
+import 'package:plant_app/app/settings/theme_cubit.dart' as _i791;
 import 'package:plant_app/core/logger/app_bloc_observer.dart' as _i455;
 import 'package:plant_app/core/logger/app_logger.dart' as _i477;
 import 'package:plant_app/core/network/dio_client.dart' as _i747;
@@ -27,6 +29,18 @@ import 'package:plant_app/features/app_flow/domain/repositories/app_flow_reposit
     as _i489;
 import 'package:plant_app/features/app_flow/presentation/cubit/app_flow_cubit.dart'
     as _i88;
+import 'package:plant_app/features/home/data/datasources/home_remote_data_source.dart'
+    as _i613;
+import 'package:plant_app/features/home/data/repositories/home_repository_impl.dart'
+    as _i625;
+import 'package:plant_app/features/home/domain/repositories/home_repository.dart'
+    as _i790;
+import 'package:plant_app/features/home/domain/usecases/get_plants.dart'
+    as _i274;
+import 'package:plant_app/features/home/domain/usecases/get_questions.dart'
+    as _i744;
+import 'package:plant_app/features/home/presentation/bloc/home_bloc.dart'
+    as _i623;
 import 'package:plant_app/features/onboarding/presentation/cubit/onboarding_cubit.dart'
     as _i672;
 import 'package:plant_app/features/paywall/presentation/cubit/paywall_cubit.dart'
@@ -60,15 +74,36 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i455.AppBlocObserver>(
       () => _i455.AppBlocObserver(gh<_i207.Talker>()),
     );
+    gh.lazySingleton<_i527.AppSettingsRepository>(
+      () => _i527.AppSettingsRepositoryImpl(gh<_i933.LocalStorage>()),
+    );
     gh.lazySingleton<_i361.Dio>(
       () => registerModule.dio(gh<_i559.DioFactory>()),
     );
     gh.lazySingleton<_i747.DioClient>(() => _i747.DioClient(gh<_i361.Dio>()));
+    gh.factory<_i791.ThemeCubit>(
+      () => _i791.ThemeCubit(gh<_i527.AppSettingsRepository>()),
+    );
+    gh.lazySingleton<_i613.HomeRemoteDataSource>(
+      () => _i613.HomeRemoteDataSourceImpl(gh<_i361.Dio>()),
+    );
     gh.lazySingleton<_i489.AppFlowRepository>(
       () => _i488.AppFlowRepositoryImpl(gh<_i933.LocalStorage>()),
     );
     gh.factory<_i88.AppFlowCubit>(
       () => _i88.AppFlowCubit(gh<_i489.AppFlowRepository>()),
+    );
+    gh.lazySingleton<_i790.HomeRepository>(
+      () => _i625.HomeRepositoryImpl(gh<_i613.HomeRemoteDataSource>()),
+    );
+    gh.factory<_i274.GetPlants>(
+      () => _i274.GetPlants(gh<_i790.HomeRepository>()),
+    );
+    gh.factory<_i744.GetQuestions>(
+      () => _i744.GetQuestions(gh<_i790.HomeRepository>()),
+    );
+    gh.factory<_i623.HomeBloc>(
+      () => _i623.HomeBloc(gh<_i744.GetQuestions>(), gh<_i274.GetPlants>()),
     );
     return this;
   }

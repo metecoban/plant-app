@@ -3,6 +3,6 @@ final class Env {
 
   static const apiBaseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'https://api-stage.plantapp.app',
+    defaultValue: 'https://dummy-api-jtg6bessta-ey.a.run.app',
   );
 }

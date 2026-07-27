@@ -44,5 +44,27 @@
     "terms": "Koşullar",
     "privacy": "Gizlilik",
     "restore": "Geri Yükle"
+  },
+  "home": {
+    "greeting": "Merhaba, bitki sever!",
+    "goodMorning": "Günaydın!",
+    "goodAfternoon": "Tünaydın!",
+    "goodEvening": "İyi Akşamlar!",
+    "searchHint": "Bitki ara",
+    "premiumTitle": "ÜCRETSİZ Premium",
+    "premiumSubtitle": "Hesabınızı yükseltmek için dokunun!",
+    "navHome": "Ana Sayfa",
+    "navDiagnose": "Teşhis",
+    "navMyGarden": "Bahçem",
+    "navProfile": "Profil",
+    "navScan": "Tara",
+    "emptyMessage": "Henüz içerik bulunmuyor."
+  },
+  "profile": {
+    "darkTheme": "Koyu tema",
+    "language": "Dil",
+    "languageEn": "İngilizce",
+    "languageTr": "Türkçe",
+    "selectLanguage": "Dil seçin"
   }
 }

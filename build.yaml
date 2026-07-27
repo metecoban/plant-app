@@ -7,12 +7,6 @@ targets:
         - pubspec.yaml
         - assets/**
     builders:
-      slang_build_runner:
-        options:
-          base_locale: en
-          fallback_strategy: base_locale
-          input_directory: assets/i18n
-          output_directory: lib/core/i18n
       flutter_gen_runner:
         options:
           output: lib/gen/
