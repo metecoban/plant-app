@@ -15,7 +15,7 @@ class HomeHeader extends StatelessWidget {
 
   static const _premiumBannerColor = Color(0xFF24201A);
   static const _premiumGold = Color(0xFFE5C07B);
-  static const _questionCarouselHeight = 164.0;
+  static const _questionCarouselHeight = 180.0;
   static const _questionPeek = 72.0;
 
   @override
@@ -271,6 +271,10 @@ class _QuestionCard extends StatelessWidget {
   final double width;
   final double height;
 
+  static const _titleLineHeight = 1.25;
+  static const _titleFontSize = 16.0;
+  static const _titleBlockHeight = _titleFontSize * _titleLineHeight * 2;
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -294,19 +298,19 @@ class _QuestionCard extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(AppSpacing.item),
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: Text(
-                  question.title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: context.textTheme.labelLarge?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w700,
-                    height: 1.25,
-                  ),
+            Positioned(
+              left: AppSpacing.item,
+              right: AppSpacing.item,
+              bottom: AppSpacing.item,
+              height: _titleBlockHeight,
+              child: Text(
+                question.title,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: context.textTheme.labelMedium?.copyWith(
+                  color: Colors.white,
+                  fontSize: _titleFontSize,
+                  height: _titleLineHeight,
                 ),
               ),
             ),

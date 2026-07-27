@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:plant_app/app/theme/app_colors.dart';
+import 'package:plant_app/app/theme/app_theme_extensions.dart';
 import 'package:plant_app/core/network/app_image_cache_manager.dart';
 
 class PlantImage extends StatelessWidget {
@@ -28,23 +28,23 @@ class PlantImage extends StatelessWidget {
       height: height,
       fit: fit,
       placeholder: (_, _) => ColoredBox(
-        color: AppPalette.homeBackground,
+        color: context.appColors.homeBackground,
         child: Center(
           child: SizedBox(
             width: 20,
             height: 20,
             child: CircularProgressIndicator(
               strokeWidth: 2,
-              color: AppPalette.primary.withValues(alpha: 0.6),
+              color: context.appColors.primary.withValues(alpha: 0.6),
             ),
           ),
         ),
       ),
       errorWidget: (_, _, _) => ColoredBox(
-        color: AppPalette.homeBackground,
+        color: context.appColors.homeBackground,
         child: Icon(
           Icons.local_florist_outlined,
-          color: AppPalette.subText.withValues(alpha: 0.5),
+          color: context.appColors.subText.withValues(alpha: 0.5),
           size: (width ?? height ?? 24) * 0.4,
         ),
       ),

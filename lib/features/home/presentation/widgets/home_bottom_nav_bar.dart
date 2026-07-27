@@ -33,43 +33,42 @@ class HomeBottomNavBar extends StatelessWidget {
   final ValueChanged<HomeNavItem> onItemSelected;
 
   static const _inactiveColor = Color(0xFF979798);
+  static const _topBorderColor = Color(0xFFE5E5E5);
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: AppPalette.surface,
-        border: Border(
-          top: BorderSide(color: AppPalette.subText.withValues(alpha: 0.12)),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(height: 1, color: _topBorderColor),
+        BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: currentItem.index,
+          onTap: (index) => onItemSelected(HomeNavItemX.fromIndex(index)),
+          backgroundColor: AppPalette.surface,
+          elevation: 0,
+          selectedItemColor: AppPalette.primary,
+          unselectedItemColor: _inactiveColor,
+          selectedFontSize: 11,
+          unselectedFontSize: 11,
+          selectedLabelStyle: const TextStyle(
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.w600,
+            height: 2,
+          ),
+          unselectedLabelStyle: const TextStyle(
+            fontFamily: 'Roboto',
+            fontWeight: FontWeight.w400,
+            height: 2,
+          ),
+          items: [
+            _item(icon: Assets.icons.home.home, label: t.home.navHome),
+            _item(icon: Assets.icons.home.diagnose, label: t.home.navDiagnose),
+            _item(icon: Assets.icons.home.myGarden, label: t.home.navMyGarden),
+            _item(icon: Assets.icons.home.profile, label: t.home.navProfile),
+          ],
         ),
-      ),
-      child: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currentItem.index,
-        onTap: (index) => onItemSelected(HomeNavItemX.fromIndex(index)),
-        backgroundColor: AppPalette.surface,
-        elevation: 0,
-        selectedItemColor: AppPalette.primary,
-        unselectedItemColor: _inactiveColor,
-        selectedFontSize: 11,
-        unselectedFontSize: 11,
-        selectedLabelStyle: const TextStyle(
-          fontFamily: 'Roboto',
-          fontWeight: FontWeight.w600,
-          height: 2,
-        ),
-        unselectedLabelStyle: const TextStyle(
-          fontFamily: 'Roboto',
-          fontWeight: FontWeight.w400,
-          height: 2,
-        ),
-        items: [
-          _item(icon: Assets.icons.home.home, label: t.home.navHome),
-          _item(icon: Assets.icons.home.diagnose, label: t.home.navDiagnose),
-          _item(icon: Assets.icons.home.myGarden, label: t.home.navMyGarden),
-          _item(icon: Assets.icons.home.profile, label: t.home.navProfile),
-        ],
-      ),
+      ],
     );
   }
 
@@ -105,7 +104,9 @@ class _NavIcon extends StatelessWidget {
 }
 
 class HomeScanFab extends StatelessWidget {
-  const HomeScanFab({super.key});
+  const HomeScanFab({required this.onPressed, super.key});
+
+  final VoidCallback onPressed;
 
   static const _innerColor = Color(0xFF28AF6E);
   static const _borderColor = Color(0xFF2CCC80);
@@ -119,10 +120,9 @@ class HomeScanFab extends StatelessWidget {
       width: _size,
       height: _size,
       child: FloatingActionButton(
-        onPressed: () {},
+        onPressed: onPressed,
         backgroundColor: _innerColor,
-        elevation: 4,
-        highlightElevation: 6,
+        elevation: 0,
         materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         shape: const CircleBorder(
           side: BorderSide(color: _borderColor, width: 3),

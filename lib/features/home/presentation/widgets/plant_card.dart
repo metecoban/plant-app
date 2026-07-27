@@ -48,7 +48,7 @@ class PlantCard extends StatelessWidget {
                     plant.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: context.textTheme.labelLarge?.copyWith(
+                    style: context.textTheme.labelMedium?.copyWith(
                       fontSize: 15,
                       height: 1.3,
                       color: AppPalette.mainText,

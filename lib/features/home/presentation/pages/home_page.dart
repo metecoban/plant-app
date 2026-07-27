@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:plant_app/app/di/injection.dart';
 import 'package:plant_app/app/theme/app_colors.dart';
+import 'package:plant_app/app/theme/app_theme_extensions.dart';
 import 'package:plant_app/core/i18n/strings.g.dart';
 import 'package:plant_app/core/presentation/base_view.dart';
 import 'package:plant_app/features/home/domain/entities/plant.dart';
@@ -10,6 +11,10 @@ import 'package:plant_app/features/home/domain/entities/question.dart';
 import 'package:plant_app/features/home/presentation/bloc/home_bloc.dart';
 import 'package:plant_app/features/home/presentation/bloc/home_event.dart';
 import 'package:plant_app/features/home/presentation/bloc/home_state.dart';
+import 'package:plant_app/features/home/presentation/pages/diagnose_page.dart';
+import 'package:plant_app/features/home/presentation/pages/my_garden_page.dart';
+import 'package:plant_app/features/home/presentation/pages/profile_page.dart';
+import 'package:plant_app/features/home/presentation/pages/scan_page.dart';
 import 'package:plant_app/features/home/presentation/widgets/home_bottom_nav_bar.dart';
 import 'package:plant_app/features/home/presentation/widgets/home_header.dart';
 import 'package:plant_app/features/home/presentation/widgets/plant_list.dart';
@@ -27,26 +32,43 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   HomeNavItem _currentNavItem = HomeNavItem.home;
+  bool _showScan = false;
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<HomeBloc, HomeState>(
-      create: (_) => getIt<HomeBloc>()..add(const HomeEvent.started()),
-      builder: (context, state) {
-        return Scaffold(
-          backgroundColor: AppPalette.homeBackground,
-          extendBody: true,
-          body: SafeArea(bottom: false, child: _HomeBody(state: state)),
-          bottomNavigationBar: HomeBottomNavBar(
-            currentItem: _currentNavItem,
-            onItemSelected: (item) => setState(() => _currentNavItem = item),
-          ),
-          floatingActionButton: const HomeScanFab(),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-        );
-      },
+    return Scaffold(
+      backgroundColor: context.appColors.homeBackground,
+      extendBody: true,
+      body: SafeArea(
+        bottom: false,
+        child: _showScan ? const ScanPage() : _buildTabContent(),
+      ),
+      bottomNavigationBar: HomeBottomNavBar(
+        currentItem: _currentNavItem,
+        onItemSelected: (item) {
+          setState(() {
+            _currentNavItem = item;
+            _showScan = false;
+          });
+        },
+      ),
+      floatingActionButton: HomeScanFab(
+        onPressed: () => setState(() => _showScan = true),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
+  }
+
+  Widget _buildTabContent() {
+    return switch (_currentNavItem) {
+      HomeNavItem.home => BaseView<HomeBloc, HomeState>(
+        create: (_) => getIt<HomeBloc>()..add(const HomeEvent.started()),
+        builder: (context, state) => _HomeBody(state: state),
+      ),
+      HomeNavItem.diagnose => const DiagnosePage(),
+      HomeNavItem.myGarden => const MyGardenPage(),
+      HomeNavItem.profile => const ProfilePage(),
+    };
   }
 }
 

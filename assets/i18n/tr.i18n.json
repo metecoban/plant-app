@@ -57,6 +57,14 @@
     "navDiagnose": "Teşhis",
     "navMyGarden": "Bahçem",
     "navProfile": "Profil",
+    "navScan": "Tara",
     "emptyMessage": "Henüz içerik bulunmuyor."
+  },
+  "profile": {
+    "darkTheme": "Koyu tema",
+    "language": "Dil",
+    "languageEn": "İngilizce",
+    "languageTr": "Türkçe",
+    "selectLanguage": "Dil seçin"
   }
 }

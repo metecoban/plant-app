@@ -57,6 +57,14 @@
     "navDiagnose": "Diagnose",
     "navMyGarden": "My Garden",
     "navProfile": "Profile",
+    "navScan": "Scan",
     "emptyMessage": "No content available yet."
+  },
+  "profile": {
+    "darkTheme": "Dark theme",
+    "language": "Language",
+    "languageEn": "English",
+    "languageTr": "Turkish",
+    "selectLanguage": "Select language"
   }
 }

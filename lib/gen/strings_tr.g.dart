@@ -144,7 +144,6 @@ class _Translations$profile$tr implements Translations$profile$en {
 	@override String get language => 'Dil';
 	@override String get languageEn => 'İngilizce';
 	@override String get languageTr => 'Türkçe';
-	@override String get selectLanguage => 'Dil seçin';
 }
 
 /// The flat map containing all translations for locale <tr>.
@@ -212,7 +211,6 @@ extension on TranslationsTr {
 			'profile.language' => 'Dil',
 			'profile.languageEn' => 'İngilizce',
 			'profile.languageTr' => 'Türkçe',
-			'profile.selectLanguage' => 'Dil seçin',
 			_ => null,
 		};
 	}
