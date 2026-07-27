@@ -47,6 +47,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final Translations$common$en common = Translations$common$en.internal(_root);
 	late final Translations$onboarding$en onboarding = Translations$onboarding$en.internal(_root);
 	late final Translations$paywall$en paywall = Translations$paywall$en.internal(_root);
+	late final Translations$home$en home = Translations$home$en.internal(_root);
 }
 
 // Path: common
@@ -193,6 +194,51 @@ class Translations$paywall$en {
 	String get restore => 'Restore';
 }
 
+// Path: home
+class Translations$home$en {
+	Translations$home$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Hi, plant lover!'
+	String get greeting => 'Hi, plant lover!';
+
+	/// en: 'Good Morning!'
+	String get goodMorning => 'Good Morning!';
+
+	/// en: 'Good Afternoon!'
+	String get goodAfternoon => 'Good Afternoon!';
+
+	/// en: 'Good Evening!'
+	String get goodEvening => 'Good Evening!';
+
+	/// en: 'Search for plants'
+	String get searchHint => 'Search for plants';
+
+	/// en: 'FREE Premium Available'
+	String get premiumTitle => 'FREE Premium Available';
+
+	/// en: 'Tap to upgrade your account!'
+	String get premiumSubtitle => 'Tap to upgrade your account!';
+
+	/// en: 'Home'
+	String get navHome => 'Home';
+
+	/// en: 'Diagnose'
+	String get navDiagnose => 'Diagnose';
+
+	/// en: 'My Garden'
+	String get navMyGarden => 'My Garden';
+
+	/// en: 'Profile'
+	String get navProfile => 'Profile';
+
+	/// en: 'No content available yet.'
+	String get emptyMessage => 'No content available yet.';
+}
+
 /// The flat map containing all translations for locale <en>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -241,6 +287,18 @@ extension on Translations {
 			'paywall.terms' => 'Terms',
 			'paywall.privacy' => 'Privacy',
 			'paywall.restore' => 'Restore',
+			'home.greeting' => 'Hi, plant lover!',
+			'home.goodMorning' => 'Good Morning!',
+			'home.goodAfternoon' => 'Good Afternoon!',
+			'home.goodEvening' => 'Good Evening!',
+			'home.searchHint' => 'Search for plants',
+			'home.premiumTitle' => 'FREE Premium Available',
+			'home.premiumSubtitle' => 'Tap to upgrade your account!',
+			'home.navHome' => 'Home',
+			'home.navDiagnose' => 'Diagnose',
+			'home.navMyGarden' => 'My Garden',
+			'home.navProfile' => 'Profile',
+			'home.emptyMessage' => 'No content available yet.',
 			_ => null,
 		};
 	}

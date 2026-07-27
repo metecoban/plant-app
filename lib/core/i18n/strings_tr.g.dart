@@ -43,6 +43,7 @@ class TranslationsTr extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _Translations$common$tr common = _Translations$common$tr._(_root);
 	@override late final _Translations$onboarding$tr onboarding = _Translations$onboarding$tr._(_root);
 	@override late final _Translations$paywall$tr paywall = _Translations$paywall$tr._(_root);
+	@override late final _Translations$home$tr home = _Translations$home$tr._(_root);
 }
 
 // Path: common
@@ -111,6 +112,27 @@ class _Translations$paywall$tr extends Translations$paywall$en {
 	@override String get restore => 'Geri Yükle';
 }
 
+// Path: home
+class _Translations$home$tr extends Translations$home$en {
+	_Translations$home$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get greeting => 'Merhaba, bitki sever!';
+	@override String get goodMorning => 'Günaydın!';
+	@override String get goodAfternoon => 'Tünaydın!';
+	@override String get goodEvening => 'İyi Akşamlar!';
+	@override String get searchHint => 'Bitki ara';
+	@override String get premiumTitle => 'ÜCRETSİZ Premium';
+	@override String get premiumSubtitle => 'Hesabınızı yükseltmek için dokunun!';
+	@override String get navHome => 'Ana Sayfa';
+	@override String get navDiagnose => 'Teşhis';
+	@override String get navMyGarden => 'Bahçem';
+	@override String get navProfile => 'Profil';
+	@override String get emptyMessage => 'Henüz içerik bulunmuyor.';
+}
+
 /// The flat map containing all translations for locale <tr>.
 /// Only for edge cases! For simple maps, use the map function of this library.
 ///
@@ -159,6 +181,18 @@ extension on TranslationsTr {
 			'paywall.terms' => 'Koşullar',
 			'paywall.privacy' => 'Gizlilik',
 			'paywall.restore' => 'Geri Yükle',
+			'home.greeting' => 'Merhaba, bitki sever!',
+			'home.goodMorning' => 'Günaydın!',
+			'home.goodAfternoon' => 'Tünaydın!',
+			'home.goodEvening' => 'İyi Akşamlar!',
+			'home.searchHint' => 'Bitki ara',
+			'home.premiumTitle' => 'ÜCRETSİZ Premium',
+			'home.premiumSubtitle' => 'Hesabınızı yükseltmek için dokunun!',
+			'home.navHome' => 'Ana Sayfa',
+			'home.navDiagnose' => 'Teşhis',
+			'home.navMyGarden' => 'Bahçem',
+			'home.navProfile' => 'Profil',
+			'home.emptyMessage' => 'Henüz içerik bulunmuyor.',
 			_ => null,
 		};
 	}

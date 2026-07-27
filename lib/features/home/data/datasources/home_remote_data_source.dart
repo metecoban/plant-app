@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:plant_app/core/error/app_exception.dart';
 import 'package:plant_app/core/network/api_endpoints.dart';
+import 'package:plant_app/core/network/response_parser.dart';
 import 'package:plant_app/features/home/data/models/category/categories_response_model.dart';
 import 'package:plant_app/features/home/data/models/category/plant_model.dart';
 import 'package:plant_app/features/home/data/models/question/question_model.dart';
@@ -21,12 +22,8 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   @override
   Future<List<QuestionModel>> getQuestions() async {
     try {
-      final response = await _dio.get<List<dynamic>>(ApiEndpoints.questions);
-      final data = response.data;
-
-      if (data == null) {
-        throw const ParsingException('Questions response was empty.');
-      }
+      final response = await _dio.get<dynamic>(ApiEndpoints.questions);
+      final data = ResponseParser.asList(response.data);
 
       return data
           .map(
@@ -37,26 +34,24 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
       throw _mapDioException(exception);
     } on FormatException catch (exception) {
       throw ParsingException(exception.message);
+    } on TypeError catch (_) {
+      throw const ParsingException('Failed to parse questions response.');
     }
   }
 
   @override
   Future<List<PlantModel>> getPlants() async {
     try {
-      final response = await _dio.get<Map<String, dynamic>>(
-        ApiEndpoints.categories,
-      );
-      final data = response.data;
-
-      if (data == null) {
-        throw const ParsingException('Categories response was empty.');
-      }
+      final response = await _dio.get<dynamic>(ApiEndpoints.categories);
+      final data = ResponseParser.asMap(response.data);
 
       return CategoriesResponseModel.fromJson(data).data;
     } on DioException catch (exception) {
       throw _mapDioException(exception);
     } on FormatException catch (exception) {
       throw ParsingException(exception.message);
+    } on TypeError catch (_) {
+      throw const ParsingException('Failed to parse categories response.');
     }
   }
 

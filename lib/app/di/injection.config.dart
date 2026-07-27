@@ -37,6 +37,8 @@ import 'package:plant_app/features/home/domain/usecases/get_plants.dart'
     as _i274;
 import 'package:plant_app/features/home/domain/usecases/get_questions.dart'
     as _i744;
+import 'package:plant_app/features/home/presentation/bloc/home_bloc.dart'
+    as _i623;
 import 'package:plant_app/features/onboarding/presentation/cubit/onboarding_cubit.dart'
     as _i672;
 import 'package:plant_app/features/paywall/presentation/cubit/paywall_cubit.dart'
@@ -91,6 +93,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i744.GetQuestions>(
       () => _i744.GetQuestions(gh<_i790.HomeRepository>()),
+    );
+    gh.factory<_i623.HomeBloc>(
+      () => _i623.HomeBloc(gh<_i744.GetQuestions>(), gh<_i274.GetPlants>()),
     );
     return this;
   }

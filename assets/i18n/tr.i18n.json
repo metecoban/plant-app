@@ -44,5 +44,19 @@
     "terms": "Koşullar",
     "privacy": "Gizlilik",
     "restore": "Geri Yükle"
+  },
+  "home": {
+    "greeting": "Merhaba, bitki sever!",
+    "goodMorning": "Günaydın!",
+    "goodAfternoon": "Tünaydın!",
+    "goodEvening": "İyi Akşamlar!",
+    "searchHint": "Bitki ara",
+    "premiumTitle": "ÜCRETSİZ Premium",
+    "premiumSubtitle": "Hesabınızı yükseltmek için dokunun!",
+    "navHome": "Ana Sayfa",
+    "navDiagnose": "Teşhis",
+    "navMyGarden": "Bahçem",
+    "navProfile": "Profil",
+    "emptyMessage": "Henüz içerik bulunmuyor."
   }
 }
