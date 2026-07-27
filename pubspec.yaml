@@ -14,7 +14,6 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  cupertino_icons: ^1.0.8
 
   # ── State Management ───────────────────────────────────────────────────────
   flutter_bloc: ^9.1.1
@@ -81,14 +80,9 @@ flutter_gen:
 
 flutter_native_splash:
   color: "#FFFFFF"
-  image: assets/images/app_logo.jpeg
-  color_dark: "#FFFFFF"
-  image_dark: assets/images/app_logo.jpeg
-  android_12:
-    color: "#FFFFFF"
-    image: assets/images/app_logo.jpeg
-    color_dark: "#FFFFFF"
-    image_dark: assets/images/app_logo.jpeg
+  image: assets/images/splash_logo.png
+  android: true
+  ios: true
 
 flutter:
   uses-material-design: true

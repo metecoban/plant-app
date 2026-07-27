@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:plant_app/app/di/injection.dart';
-import 'package:plant_app/app/theme/app_colors.dart';
 import 'package:plant_app/app/theme/app_theme_extensions.dart';
 import 'package:plant_app/core/i18n/strings.g.dart';
 import 'package:plant_app/core/presentation/base_view.dart';
+import 'package:plant_app/core/presentation/system_ui_overlay_style.dart';
 import 'package:plant_app/features/home/domain/entities/plant.dart';
 import 'package:plant_app/features/home/domain/entities/question.dart';
 import 'package:plant_app/features/home/presentation/bloc/home_bloc.dart';
@@ -36,26 +37,29 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: context.appColors.homeBackground,
-      extendBody: true,
-      body: SafeArea(
-        bottom: false,
-        child: _showScan ? const ScanPage() : _buildTabContent(),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: appSystemUiOverlayForContext(context),
+      child: Scaffold(
+        backgroundColor: context.appColors.homeBackground,
+        extendBody: true,
+        body: SafeArea(
+          bottom: false,
+          child: _showScan ? const ScanPage() : _buildTabContent(),
+        ),
+        bottomNavigationBar: HomeBottomNavBar(
+          currentItem: _currentNavItem,
+          onItemSelected: (item) {
+            setState(() {
+              _currentNavItem = item;
+              _showScan = false;
+            });
+          },
+        ),
+        floatingActionButton: HomeScanFab(
+          onPressed: () => setState(() => _showScan = true),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
-      bottomNavigationBar: HomeBottomNavBar(
-        currentItem: _currentNavItem,
-        onItemSelected: (item) {
-          setState(() {
-            _currentNavItem = item;
-            _showScan = false;
-          });
-        },
-      ),
-      floatingActionButton: HomeScanFab(
-        onPressed: () => setState(() => _showScan = true),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
@@ -101,7 +105,7 @@ class _HomeBody extends StatelessWidget {
             (next) => next is! HomeSuccess || !next.isRefreshing,
           );
         },
-        color: AppPalette.primary,
+        color: context.appColors.primary,
         child: Skeletonizer(
           enabled: isRefreshing,
           child: const _HomeScrollContent(),
@@ -118,9 +122,9 @@ class _HomeScrollContent extends StatelessWidget {
     2,
     (index) => Question(
       id: index,
-      title: 'How to identify plants easily with PlantApp?',
-      subtitle: 'Subtitle',
-      imageUrl: 'https://picsum.photos/seed/q$index/400/200',
+      title: '',
+      subtitle: '',
+      imageUrl: '',
       linkUrl: '',
       order: index,
     ),
@@ -128,13 +132,7 @@ class _HomeScrollContent extends StatelessWidget {
 
   static final _placeholderPlants = List<Plant>.generate(
     4,
-    (index) => Plant(
-      id: index,
-      name: 'plant',
-      title: 'Edible Plants',
-      rank: index,
-      imageUrl: 'https://picsum.photos/seed/p$index/100/100',
-    ),
+    (index) => Plant(id: index, name: '', title: '', rank: index, imageUrl: ''),
   );
 
   @override

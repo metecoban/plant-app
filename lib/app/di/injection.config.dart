@@ -17,8 +17,6 @@ import 'package:plant_app/app/router/app_router.dart' as _i631;
 import 'package:plant_app/app/settings/app_settings_repository.dart' as _i527;
 import 'package:plant_app/app/settings/theme_cubit.dart' as _i791;
 import 'package:plant_app/core/logger/app_bloc_observer.dart' as _i455;
-import 'package:plant_app/core/logger/app_logger.dart' as _i477;
-import 'package:plant_app/core/network/dio_client.dart' as _i747;
 import 'package:plant_app/core/network/dio_factory.dart' as _i559;
 import 'package:plant_app/core/storage/local_storage.dart' as _i933;
 import 'package:plant_app/core/storage/shared_preferences_storage.dart'
@@ -68,9 +66,6 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i801.SharedPreferencesStorage(gh<_i460.SharedPreferences>()),
     );
     gh.factory<_i559.DioFactory>(() => _i559.DioFactory(gh<_i207.Talker>()));
-    gh.lazySingleton<_i477.AppLogger>(
-      () => _i477.AppLogger(gh<_i207.Talker>()),
-    );
     gh.lazySingleton<_i455.AppBlocObserver>(
       () => _i455.AppBlocObserver(gh<_i207.Talker>()),
     );
@@ -80,7 +75,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i361.Dio>(
       () => registerModule.dio(gh<_i559.DioFactory>()),
     );
-    gh.lazySingleton<_i747.DioClient>(() => _i747.DioClient(gh<_i361.Dio>()));
     gh.factory<_i791.ThemeCubit>(
       () => _i791.ThemeCubit(gh<_i527.AppSettingsRepository>()),
     );
