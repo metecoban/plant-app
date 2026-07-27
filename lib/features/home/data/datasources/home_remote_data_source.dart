@@ -26,9 +26,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
       final data = ResponseParser.asList(response.data);
 
       return data
-          .map(
-            (item) => QuestionModel.fromJson(item as Map<String, dynamic>),
-          )
+          .map((item) => QuestionModel.fromJson(item as Map<String, dynamic>))
           .toList();
     } on DioException catch (exception) {
       throw _mapDioException(exception);

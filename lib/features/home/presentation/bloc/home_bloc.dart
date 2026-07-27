@@ -12,7 +12,7 @@ import 'package:plant_app/features/home/presentation/bloc/home_state.dart';
 @injectable
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc(this._getQuestions, this._getPlants)
-      : super(const HomeState.initial()) {
+    : super(const HomeState.initial()) {
     on<HomeStarted>(_onStarted);
     on<HomeRefreshed>(_onRefreshed);
     on<HomeRetryRequested>(_onRetryRequested);
@@ -26,7 +26,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     await _load(emit);
   }
 
-  Future<void> _onRefreshed(HomeRefreshed event, Emitter<HomeState> emit) async {
+  Future<void> _onRefreshed(
+    HomeRefreshed event,
+    Emitter<HomeState> emit,
+  ) async {
     final current = state;
     if (current case HomeSuccess(:final questions, :final plants)) {
       emit(
@@ -52,10 +55,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   Future<void> _load(Emitter<HomeState> emit) async {
-    final results = await Future.wait([
-      _getQuestions(),
-      _getPlants(),
-    ]);
+    final results = await Future.wait([_getQuestions(), _getPlants()]);
 
     final questionsResult = results[0] as Result<List<Question>>;
     final plantsResult = results[1] as Result<List<Plant>>;
@@ -76,12 +76,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       return;
     }
 
-    emit(
-      HomeState.success(
-        questions: questions,
-        plants: plants,
-      ),
-    );
+    emit(HomeState.success(questions: questions, plants: plants));
   }
 
   Failure? _firstFailure(

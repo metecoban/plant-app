@@ -10,10 +10,7 @@ class PaywallState {
   final PaywallPlan selectedPlan;
   final PaywallStatus status;
 
-  PaywallState copyWith({
-    PaywallPlan? selectedPlan,
-    PaywallStatus? status,
-  }) {
+  PaywallState copyWith({PaywallPlan? selectedPlan, PaywallStatus? status}) {
     return PaywallState(
       selectedPlan: selectedPlan ?? this.selectedPlan,
       status: status ?? this.status,

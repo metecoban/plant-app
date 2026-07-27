@@ -1,4 +1,1 @@
-enum OnboardingStatus {
-  initial,
-  completed,
-}
+enum OnboardingStatus { initial, completed }

@@ -6,9 +6,8 @@ part 'categories_response_model.g.dart';
 
 @freezed
 abstract class CategoriesResponseModel with _$CategoriesResponseModel {
-  const factory CategoriesResponseModel({
-    required List<PlantModel> data,
-  }) = _CategoriesResponseModel;
+  const factory CategoriesResponseModel({required List<PlantModel> data}) =
+      _CategoriesResponseModel;
 
   factory CategoriesResponseModel.fromJson(Map<String, dynamic> json) =>
       _$CategoriesResponseModelFromJson(json);

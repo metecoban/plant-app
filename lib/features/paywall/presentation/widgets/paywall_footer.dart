@@ -5,10 +5,7 @@ import 'package:plant_app/features/paywall/presentation/theme/paywall_theme_exte
 import 'package:plant_app/shared/widgets/app_button.dart';
 
 class PaywallFooter extends StatelessWidget {
-  const PaywallFooter({
-    required this.onSubscribePressed,
-    super.key,
-  });
+  const PaywallFooter({required this.onSubscribePressed, super.key});
 
   final VoidCallback onSubscribePressed;
 
@@ -19,10 +16,7 @@ class PaywallFooter extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          AppButton(
-            label: t.paywall.ctaButton,
-            onPressed: onSubscribePressed,
-          ),
+          AppButton(label: t.paywall.ctaButton, onPressed: onSubscribePressed),
           const SizedBox(height: AppSpacing.item),
           SizedBox(
             height: AppSpacing.secondaryRowHeight,
@@ -44,7 +38,9 @@ class PaywallFooter extends StatelessWidget {
           SizedBox(
             height: AppSpacing.item,
             width: double.infinity,
-            child: Center(child: _PaywallLinksRow(style: context.paywallSubtitleStyle)),
+            child: Center(
+              child: _PaywallLinksRow(style: context.paywallSubtitleStyle),
+            ),
           ),
         ],
       ),
@@ -80,10 +76,7 @@ class _PaywallLinksRow extends StatelessWidget {
 }
 
 class _PaywallLink extends StatelessWidget {
-  const _PaywallLink({
-    required this.label,
-    required this.style,
-  });
+  const _PaywallLink({required this.label, required this.style});
 
   final String label;
   final TextStyle? style;
@@ -106,10 +99,7 @@ class _LinkSeparator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: AppSpacing.compact),
-      child: Text(
-        '•',
-        style: style?.copyWith(fontSize: 11, height: 1.2),
-      ),
+      child: Text('•', style: style?.copyWith(fontSize: 11, height: 1.2)),
     );
   }
 }

@@ -20,9 +20,7 @@ void main() {
 
     expect(find.text('Get Started'), findsOneWidget);
     expect(
-      find.text(
-        'Identify more than 3000+ plants and 88% accuracy.',
-      ),
+      find.text('Identify more than 3000+ plants and 88% accuracy.'),
       findsOneWidget,
     );
   });

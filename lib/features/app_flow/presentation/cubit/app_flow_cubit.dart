@@ -34,18 +34,9 @@ class AppFlowCubit extends Cubit<AppFlowState> {
 
     switch (result) {
       case Success(:final data):
-        emit(
-          state.copyWith(
-            status: _statusFromDestination(data),
-          ),
-        );
+        emit(state.copyWith(status: _statusFromDestination(data)));
       case FailureResult(:final failure):
-        emit(
-          state.copyWith(
-            status: AppFlowStatus.failure,
-            failure: failure,
-          ),
-        );
+        emit(state.copyWith(status: AppFlowStatus.failure, failure: failure));
     }
   }
 
