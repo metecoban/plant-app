@@ -22,9 +22,7 @@ class HomeHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        _TopSection(greeting: _timeGreeting()),
-        const SizedBox(height: AppSpacing.item),
-        const _SearchBar(),
+        _AppBarSection(greeting: _timeGreeting()),
         const SizedBox(height: AppSpacing.item),
         const _PremiumBanner(),
         if (questions.isNotEmpty) ...[
@@ -54,8 +52,8 @@ class HomeHeader extends StatelessWidget {
   }
 }
 
-class _TopSection extends StatelessWidget {
-  const _TopSection({required this.greeting});
+class _AppBarSection extends StatelessWidget {
+  const _AppBarSection({required this.greeting});
 
   final ({String text, String emoji}) greeting;
 
@@ -64,16 +62,12 @@ class _TopSection extends StatelessWidget {
     final colors = context.appColors;
 
     return Stack(
-      clipBehavior: Clip.none,
       children: [
-        Positioned(
-          top: -8,
-          left: 0,
-          right: 0,
+        Positioned.fill(
           child: Image(
             image: Assets.images.home.appbar.provider(),
-            fit: BoxFit.fitWidth,
-            alignment: Alignment.topCenter,
+            fit: BoxFit.cover,
+            alignment: Alignment.bottomCenter,
           ),
         ),
         Padding(
@@ -81,9 +75,10 @@ class _TopSection extends StatelessWidget {
             AppSpacing.horizontal,
             AppSpacing.compact,
             AppSpacing.horizontal,
-            0,
+            AppSpacing.item,
           ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -101,6 +96,8 @@ class _TopSection extends StatelessWidget {
                   color: colors.mainText,
                 ),
               ),
+              const SizedBox(height: AppSpacing.item),
+              const _SearchField(),
             ],
           ),
         ),
@@ -109,50 +106,41 @@ class _TopSection extends StatelessWidget {
   }
 }
 
-class _SearchBar extends StatelessWidget {
-  const _SearchBar();
+class _SearchField extends StatelessWidget {
+  const _SearchField();
 
   @override
   Widget build(BuildContext context) {
     final colors = context.appColors;
 
-    return Padding(
-      padding: AppSpacing.horizontalPadding,
-      child: TextField(
-        readOnly: true,
-        decoration: InputDecoration(
-          hintText: t.home.searchHint,
-          hintStyle: context.textTheme.bodyMedium?.copyWith(
-            color: colors.subText.withValues(alpha: 0.7),
-          ),
-          prefixIcon: Icon(
-            Icons.search,
-            color: colors.subText.withValues(alpha: 0.6),
-          ),
-          filled: true,
-          fillColor: colors.surface,
-          contentPadding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.item,
-            vertical: 14,
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(AppRadius.full),
-            borderSide: BorderSide(
-              color: colors.subText.withValues(alpha: 0.12),
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(AppRadius.full),
-            borderSide: BorderSide(
-              color: colors.subText.withValues(alpha: 0.12),
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(AppRadius.full),
-            borderSide: BorderSide(
-              color: colors.primary.withValues(alpha: 0.4),
-            ),
-          ),
+    return TextField(
+      readOnly: true,
+      decoration: InputDecoration(
+        hintText: t.home.searchHint,
+        hintStyle: context.textTheme.bodyMedium?.copyWith(
+          color: colors.subText.withValues(alpha: 0.7),
+        ),
+        prefixIcon: Icon(
+          Icons.search,
+          color: colors.subText.withValues(alpha: 0.6),
+        ),
+        filled: true,
+        fillColor: colors.surface,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.item,
+          vertical: 14,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppRadius.r12),
+          borderSide: BorderSide(color: colors.subText.withValues(alpha: 0.12)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppRadius.r12),
+          borderSide: BorderSide(color: colors.subText.withValues(alpha: 0.12)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppRadius.r12),
+          borderSide: BorderSide(color: colors.primary.withValues(alpha: 0.4)),
         ),
       ),
     );
