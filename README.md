@@ -1,10 +1,10 @@
 # Plant App
 
-Bitki tanıma ve bakım uygulaması case study projesi. Onboarding → Paywall → Home akışı, API entegrasyonu, yerelleştirme ve tema desteği içerir.
+A plant identification and care case study app. Includes an Onboarding → Paywall → Home flow, API integration, localization, and theme support.
 
 **Repo:** [github.com/metecoban/plant-app](https://github.com/metecoban/plant-app)
 
-## Ekran Görüntüleri
+## Screenshots
 
 | Get Started | Onboarding 1 | Onboarding 2 |
 | --- | --- | --- |
@@ -14,9 +14,9 @@ Bitki tanıma ve bakım uygulaması case study projesi. Onboarding → Paywall �
 | --- | --- |
 | ![Paywall](docs/screenshots/paywall.png) | ![Home](docs/screenshots/home.png) |
 
-## Kullanılan Teknolojiler
+## Tech Stack
 
-| Alan | Paket |
+| Area | Package |
 | --- | --- |
 | State management | `flutter_bloc` |
 | Navigation | `auto_route` |
@@ -30,9 +30,9 @@ Bitki tanıma ve bakım uygulaması case study projesi. Onboarding → Paywall �
 | Code gen | `build_runner`, `auto_route_generator`, `injectable_generator`, `flutter_gen_runner` |
 | Test | `flutter_test`, `mocktail` |
 
-## Mimari Yaklaşım
+## Architecture
 
-**Feature-first Clean Architecture** kullanıldı. Her feature kendi `data`, `domain` ve `presentation` katmanına sahiptir.
+The project follows **feature-first Clean Architecture**. Each feature has its own `data`, `domain`, and `presentation` layers.
 
 ```
 Presentation  →  UI, Bloc/Cubit, widgets
@@ -40,13 +40,13 @@ Domain        →  Entities, repository contracts, use cases
 Data          →  Repository impl, data sources, models
 ```
 
-**App flow:** Splash sonrası `SharedPreferences` üzerinden onboarding / paywall tamamlanma durumu okunur; `AppFlowCubit` bir sonraki ekranı belirler.
+**App flow:** After splash, onboarding/paywall completion state is read from `SharedPreferences`; `AppFlowCubit` determines the next screen.
 
-**State management:** Feature karmaşıklığına göre `Cubit` (basit UI state) veya `Bloc` (event-driven, async — örn. Home) tercih edildi.
+**State management:** `Cubit` is used for simple UI state; `Bloc` is used for event-driven async flows (e.g. Home), depending on feature complexity.
 
-**Cross-cutting:** `core/` altında network, error handling, storage, i18n ve `BaseView` gibi paylaşılan yapılar yer alır.
+**Cross-cutting concerns:** Shared infrastructure such as network, error handling, storage, i18n, and `BaseView` lives under `core/`.
 
-## Klasör Yapısı
+## Folder Structure
 
 ```
 lib/
@@ -55,7 +55,7 @@ lib/
 │   ├── router/
 │   ├── settings/
 │   └── theme/
-├── core/                   # Paylaşılan altyapı
+├── core/                   # Shared infrastructure
 │   ├── config/
 │   ├── error/
 │   ├── i18n/
@@ -64,12 +64,12 @@ lib/
 │   ├── presentation/       # BaseView
 │   └── storage/
 ├── features/
-│   ├── app_flow/           # Splash, onboarding/paywall/home yönlendirme
+│   ├── app_flow/           # Splash, onboarding/paywall/home routing
 │   ├── onboarding/
 │   ├── paywall/
-│   └── home/               # API, HomeBloc, ana ekran UI
+│   └── home/               # API, HomeBloc, main screen UI
 ├── gen/                    # flutter_gen (assets, fonts)
-├── shared/                 # Ortak widget'lar
+├── shared/                 # Shared widgets
 └── main.dart
 
 assets/
@@ -80,13 +80,13 @@ assets/
 
 test/
 ├── core/
-├── features/               # Unit, bloc/cubit, widget testleri
+├── features/               # Unit, bloc/cubit, widget tests
 └── helpers/
 ```
 
-## Kurulum
+## Setup
 
-**Gereksinimler:** Flutter SDK `^3.12.2`, Dart SDK uyumlu sürüm.
+**Requirements:** Flutter SDK `^3.12.2`, compatible Dart SDK.
 
 ```bash
 git clone https://github.com/metecoban/plant-app.git
@@ -97,48 +97,48 @@ dart run build_runner build --delete-conflicting-outputs
 flutter run
 ```
 
-**API base URL** (varsayılan):
+**API base URL** (default):
 
 ```
 https://dummy-api-jtg6bessta-ey.a.run.app
 ```
 
-Farklı bir ortam için:
+For a different environment:
 
 ```bash
 flutter run --dart-define=API_BASE_URL=https://your-api.example
 ```
 
-## Kod Üretimi
+## Code Generation
 
-Projede codegen kullanan parçalar:
+Parts of the project that rely on codegen:
 
-| Amaç | Komut |
+| Purpose | Command |
 | --- | --- |
 | i18n (`slang`) | `dart run slang` |
 | Router, DI, freezed, JSON | `dart run build_runner build --delete-conflicting-outputs` |
-| Asset type-safe erişim | `build_runner` ile birlikte `flutter_gen_runner` |
+| Type-safe asset access | `flutter_gen_runner` via `build_runner` |
 
-Tam yenileme akışı:
+Full regeneration flow:
 
 ```bash
 dart run slang
 dart run build_runner build --delete-conflicting-outputs
 ```
 
-## Test Çalıştırma
+## Running Tests
 
 ```bash
 flutter test
 ```
 
-Coverage ile:
+With coverage:
 
 ```bash
 flutter test --coverage
 ```
 
-Test kapsamı: app flow, onboarding/paywall cubit, home repository & bloc, BaseView, temel widget render senaryoları.
+Test coverage includes: app flow, onboarding/paywall cubits, home repository & bloc, BaseView, and basic widget render scenarios.
 
 ## Analyze
 
@@ -146,7 +146,7 @@ Test kapsamı: app flow, onboarding/paywall cubit, home repository & bloc, BaseV
 flutter analyze
 ```
 
-Commit öncesi önerilen kontrol:
+Recommended pre-commit checks:
 
 ```bash
 dart format .
@@ -154,7 +154,7 @@ flutter analyze
 flutter test
 ```
 
-## Build Alma
+## Build
 
 ```bash
 flutter build apk --release
@@ -166,27 +166,27 @@ iOS:
 flutter build ios --release
 ```
 
-## Mimari Kararlar
+## Architecture Decisions
 
-- **Feature-first Clean Architecture** — feature'lar birbirinden izole; domain katmanı Flutter/UI'dan bağımsız.
-- **`BaseView`** — yalnızca `BlocProvider` + `BlocBuilder` / `BlocConsumer` tekrarını azaltır; iş mantığı taşımaz.
-- **`BaseCubit` ve gereksiz base class'lar kullanılmadı** — sade ihtiyaç kadar soyutlama.
-- **DI: `get_it` + `injectable`** — constructor injection, testlerde mock ile değiştirilebilir.
-- **App flow local storage üzerinden yönetildi** — onboarding/paywall tamamlanma bayrakları `SharedPreferences`'ta; tema ve dil tercihleri de yerelde saklanır.
-- **Responsive tasarım** — Flutter'ın native layout araçları (`LayoutBuilder`, `MediaQuery`, `Flexible`, grid, padding sabitleri) ile sağlandı; ek responsive paket kullanılmadı.
-- **Home için `Bloc` + freezed union state** — loading / success / empty / failure ayrımı tip güvenli `switch` ile yönetilir.
-- **Basit ekranlar için `Cubit`** — onboarding sayfa index'i, paywall plan seçimi gibi durumlar.
-- **API yanıtları string JSON** — backend bazı endpoint'lerde parse edilmemiş JSON string döndürür; `ResponseParser` ile çözülür.
-- **i18n: slang** — type-safe çeviri; çıktı `lib/core/i18n/`.
+- **Feature-first Clean Architecture** — features are isolated; the domain layer is independent of Flutter/UI.
+- **`BaseView`** — reduces repetition of `BlocProvider` + `BlocBuilder` / `BlocConsumer` only; it does not carry business logic.
+- **No `BaseCubit` or unnecessary base classes** — abstraction only where needed.
+- **DI: `get_it` + `injectable`** — constructor injection, replaceable with mocks in tests.
+- **App flow managed via local storage** — onboarding/paywall completion flags in `SharedPreferences`; theme and locale preferences are also stored locally.
+- **Responsive design** — built with Flutter's native layout tools (`LayoutBuilder`, `MediaQuery`, `Flexible`, grid, padding constants); no extra responsive package.
+- **Home uses `Bloc` + freezed union state** — loading / success / empty / failure handled with type-safe `switch`.
+- **`Cubit` for simple screens** — e.g. onboarding page index, paywall plan selection.
+- **API responses as JSON strings** — the backend returns unparsed JSON strings on some endpoints; resolved via `ResponseParser`.
+- **i18n: slang** — type-safe translations; output in `lib/core/i18n/`.
 
-## Bilinen Sınırlamalar
+## Known Limitations
 
-- Paywall **gerçek satın alma / restore** içermez; UI ve local flow tamamlama simülasyonu vardır.
-- Diagnose, My Garden, Scan sekmeleri **placeholder** ekranlardır (başlık + profil ayarları hariç).
-- Premium banner, arama ve scan FAB **henüz aksiyona bağlı değildir**.
-- `bloc_test` paketi mevcut bağımlılık setiyle (`freezed 4.x` + `flutter_bloc 9`) uyumsuz olduğu için testler `mocktail` + manuel state assertion ile yazıldı.
-- Ağ görselleri için `cached_network_image` kullanılır; offline senaryolar sınırlı test edilmiştir.
+- Paywall does **not** include real purchase / restore; it simulates UI and local flow completion.
+- Diagnose, My Garden, and Scan tabs are **placeholder** screens (except profile settings).
+- Premium banner, search, and scan FAB are **not wired to actions yet**.
+- Tests use `mocktail` + manual state assertions because `bloc_test` is incompatible with the current dependency set (`freezed 4.x` + `flutter_bloc 9`).
+- Network images use `cached_network_image`; offline scenarios are only partially tested.
 
-## Lisans
+## License
 
-Case study amaçlıdır; `publish_to: "none"`.
+For case study purposes only; `publish_to: "none"`.
